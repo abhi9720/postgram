@@ -1,0 +1,10 @@
+.homeContainer {
+	display: flex;
+	justify-content: center;
+
+	margin-top: 5px;
+}
+
+.iconstyle {
+	font-size: 28px !important;
+}

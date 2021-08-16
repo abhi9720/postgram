@@ -1,0 +1,241 @@
+* {
+  -webkit-font-smoothing: antialiased;
+}
+.rightbar {
+  flex: 3;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+
+  top: 64px;
+  font-family: "Mulish", sans-serif;
+}
+
+.rightbarWrapper {
+  padding: 20px 20px 0px 10px;
+}
+
+.birthdayContainer {
+  display: flex;
+  align-items: center;
+}
+
+.birthdayImg {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.birthdayText {
+  font-weight: 300;
+  font-size: 15px;
+}
+.rightbarAd {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.rightbarAd_img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 30px 0;
+  max-width: calc(100vh / 2);
+  position: absolute;
+  margin-top: -2px;
+}
+.rightbarAd_text {
+  position: absolute;
+  z-index: 10;
+  background-color: #0079db;
+  color: white;
+  padding: 0px 8px;
+}
+.rightbarTitle {
+  margin-bottom: 20px;
+}
+.rightbarconnections {
+  display: flex;
+  font-size: 25px;
+  height: fit-content;
+  padding: 5px 4px;
+}
+.rightbarconnections button {
+  display: inline-block;
+  background-color: #dae0e6b9;
+  margin-right: 3px;
+  font-weight: normal;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+// .rightbarconnections div {
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	flex: 1;
+// 	position: relative;
+// 	padding: 10px 30px;
+
+// 	cursor: pointer;
+// 	background-color: #423b9b86;
+// }
+
+/* .rightbarfriendsinfo {
+	border-bottom: 2px solid blue;
+}
+.rightbarfollowersinfo {
+	border-bottom: 2px solid red;
+}
+.rightbarfollowingsinfo {
+	border-bottom: 2px solid green;
+} */
+
+/* .rightbarfriendsinfo:focus-within {
+	background-color: gray;
+} */
+
+.rightbarTitle button {
+  display: inline;
+  margin-left: 10px;
+  font-weight: normal;
+  border: 2px solid transparent;
+  font-size: 15px;
+  color: #0067b8;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.rightbarTitle button:focus {
+  border: 2px dashed rgba(25, 37, 25, 1);
+}
+
+.rightbarFriendList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.rightbarTitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.rightbarInfo {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+  font-family: "Mulish", sans-serif;
+}
+
+.rightbarInfoItem {
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  height: 35px;
+  display: flex;
+  justify-self: center;
+}
+
+.rightbarInfoKey {
+  font-weight: 500;
+  margin-right: 15px;
+  color: #555;
+  font-size: 18px;
+}
+
+.rightbarInfoValue {
+  font-weight: 300;
+  flex: 0.6;
+  max-width: 350px;
+  max-height: 40px;
+  overflow: hidden;
+  font-size: 18px;
+}
+
+.rightbarInfoValue:focus-within {
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #f85618;
+  font-weight: 400;
+  background-color: #f9f9fb;
+  padding: 0px 3px;
+  color: rgba(18, 12, 68, 0.822);
+  text-indent: 4px;
+  letter-spacing: 0.4px;
+}
+
+.rightbarFollowings {
+  display: flex;
+  flex-direction: column;
+}
+
+.rightbarFollowings > span {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  display: inline-block;
+  box-sizing: border-box;
+  border-bottom: 2px solid #0079db;
+  width: fit-content;
+  padding: 3px;
+  color: rgba(18, 12, 68, 0.822);
+  margin: 5px 0px;
+}
+.rightbarFollowings_display {
+  margin-top: 10px;
+}
+
+.rightbarFollowing {
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  background: #f9f9fb;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  width: 128px;
+  height: 128px;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 5px;
+  box-sizing: border-box;
+}
+
+.rightbarFollowingImg {
+  width: 120px;
+  height: 90px;
+  object-fit: contain;
+  background-clip: border-box;
+  border-radius: 5px;
+}
+
+.rightbarFollowingName {
+  align-self: center;
+  margin-top: 8px;
+  color: #18135e;
+}
+.rightbarFollowing:hover {
+  filter: brightness(115%) drop-shadow(-6px 6px 5px #cfb8b8);
+  -webkit-filter: brightness(115%) drop-shadow(-6px 6px 5px #cfb8b8);
+  -moz-filter: brightness(115%) drop-shadow(-6px 6px 5px #cfb8b8);
+  border: 1px solid #f9601e;
+}
+
+.edit_lable {
+  display: flex;
+  align-items: center;
+  height: 25px;
+}
+
+.edit_lable input:focus {
+  outline: none;
+  background-color: rgba(202, 199, 199, 0.144);
+  font-size: 18px;
+  border: 1px solid blue;
+}
+
+.profile_status {
+  padding-left: 5px;
+}

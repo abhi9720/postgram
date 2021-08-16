@@ -1,0 +1,15 @@
+.feedsContainer {
+	box-sizing: border-box;
+	padding: 0px 26%;
+}
+@media (max-width: 1100px) {
+	.feedsContainer {
+		padding: 0px 20px;
+	}
+}
+
+@media (max-width: 600px) {
+	.feedsContainer {
+		padding: 0px 0px;
+	}
+}

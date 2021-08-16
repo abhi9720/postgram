@@ -1,0 +1,173 @@
+.sidebar {
+  flex: 2;
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  position: sticky;
+  top: 65px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(179, 179, 179);
+}
+
+.sidebarWrapper {
+  padding: 5px 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.searchContainer {
+  position: fixed;
+  box-sizing: border-box;
+  display: flex;
+  padding-left: 5px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-self: center;
+  animation: animate 0.3s;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+.searchContainer input {
+  flex: 0.9;
+  font-size: 16px;
+  padding: 10px 2px;
+  text-indent: 4px;
+  border: none;
+  outline: none;
+  letter-spacing: 0.3px;
+}
+
+.searchContainer .MuiSvgIcon-root {
+  opacity: 0.6;
+  color: rgb(22, 22, 224) !important;
+}
+
+.searchDisplay {
+  position: absolute;
+  border-radius: 10px;
+  background-color: white;
+  width: 90%;
+  min-height: 200px;
+  max-height: 400px;
+  margin-top: 20px;
+
+  display: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  -webkit-box-shadow: 0px 10px 39px 10px rgba(62, 66, 66, 0.22);
+  -moz-box-shadow: 0px 10px 39px 10px rgba(62, 66, 66, 0.22);
+  box-shadow: 0px 10px 39px 10px rgba(62, 66, 66, 0.22);
+  z-index: 1000;
+  overflow-y: auto;
+}
+@keyframes animate {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.searchDisplay a {
+  margin-left: 15px;
+  width: 90%;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.searchDisplay .MuiLinearProgress-root {
+  width: 40%;
+  align-self: center;
+  margin: 20px;
+}
+.searchDisplay a li img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.searchDisplay a li span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.searchDisplay a li img:hover {
+  width: 40px;
+  height: 40px;
+}
+
+.sidebarList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebarListItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.sidebarIcon {
+  margin-right: 15px;
+}
+
+.sidebarButton {
+  width: 150px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.sidebarHr {
+  margin: 20px 10px;
+}
+
+.sidebarFriendList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.searchedUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.No_match {
+  align-self: center;
+  box-sizing: border-box;
+  padding-top: 40px;
+
+  line-height: 30px;
+  font-weight: 400;
+  opacity: 1;
+  font-size: x-large;
+}
+
+.cancelIcon {
+  position: absolute;
+  top: 6px;
+  left: -5px;
+
+  cursor: pointer;
+  color: crimson !important;
+  align-self: flex-end;
+}

@@ -1,0 +1,63 @@
+{
+  "name": "react-social",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "node-sass": "^6.0.1",
+    "react": "^17.0.2",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2",
+    "react-alert-template-mui": "^1.0.7",
+    "react-alert-template-oldschool-dark": "^1.0.1",
+    "react-beforeunload": "^2.5.1",
+    "react-bootstrap": "^1.6.1",
+    "react-bootstrap-modal": "^4.2.0",
+    "react-content-loader": "^6.0.3",
+    "react-dom": "^17.0.2",
+    "react-edit-inline": "^1.0.8",
+    "react-inline-editing": "^1.0.10",
+    "react-notifications": "^1.7.2",
+    "react-query": "^3.19.6",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-simple-modal-provider": "^1.7.1",
+    "react-swipeable-views": "^0.14.0",
+    "react-toastify": "^7.0.4",
+    "react-transition-group": "^4.4.2",
+    "socket.io-client": "^4.1.2",
+    "timeago.js": "^4.0.2",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
