@@ -99,11 +99,11 @@ const authRoute = require("./routes/auth");
 const postRoute = require("./routes/Post");
 const conversationRoute = require("./routes/conversation");
 const messageRoute = require("./routes/Message");
-app.use("/api/user", userRoute);
-app.use("/api/auth", authRoute);
-app.use("/api/post", postRoute);
-app.use("/api/conversation", conversationRoute);
-app.use("/api/messages", messageRoute);
+app.use("/user", userRoute);
+app.use("/auth", authRoute);
+app.use("/post", postRoute);
+app.use("/conversation", conversationRoute);
+app.use("/messages", messageRoute);
 
 //==============================  port
 // it can handle all kinds of error in my app any where it is trown
