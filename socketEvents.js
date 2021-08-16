@@ -1,87 +1,60 @@
 module.exports = function (io) {
-	console.log(io.req);
-	io.on('connection', (socket) => {
-		console.log('a user connected.');
+  console.log(" io.req received " + io.req);
+  io.on("connection", (socket) => {
+    socket.on("addUser", (userId) => {
+      addUser(userId, socket.id);
+      io.emit("getUsers", users); // this is send to everyone  now get this on client side we should socket.on('getUsers')
+      console.log("-----------online users ----------------------");
+      console.log(users);
+    });
 
-		socket.on('addUser', (userId) => {
-			console.log('Adding new user ');
-			console.log(userId, socket.id);
-			addUser(userId, socket.id);
-			io.emit('getUsers', users); // this is send to everyone  now get this on client side we should socket.on('getUsers')
-			console.log('-----------online users ----------------------');
-			console.log(users);
-		});
+    //send and get message
+    socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+      const user = getUser(receiverId);
 
-		//send and get message
-		socket.on('sendMessage', ({ senderId, receiverId, text }) => {
-			const user = getUser(receiverId);
+      if (user) {
+        io.to(user.socketId).emit("getMessage", {
+          senderId,
+          text,
+        });
+      } else {
+        console.log("User is offline ");
+      }
+    });
 
-			console.log(`user : ${user}   senderId : ${senderId}  receiverId : ${receiverId} text : ${text} `);
+    socket.on("sendFriendRequest", ({ senderId, receiverId }) => {
+      const user = getUser(receiverId);
 
-			if (user) {
-				io.to(user.socketId).emit('getMessage', {
-					senderId,
-					text,
-				});
-			} else {
-				console.log('User is offline ');
-			}
-		});
+      if (user) {
+        io.to(user.socketId).emit("getFriendRequest", {
+          senderId,
+        });
+      } else {
+        console.log("User is offline ");
+      }
+    });
 
-		// to implement send friend request
-		// socket.on('sendFriendRequest', ({ senderId, receiverId }) => {
-		// 	console.log('request to send friendrequest');
-		// 	const user = getUser(receiverId);
-		// 	console.log(receiverId);
-		// 	if (user) {
-		// 		console.log(user.socketId);
-		// 		console.log(users);
-		// 		io.emit('getFriendRequest', {
-		// 			senderId,
-		// 		});
-		// 	}
-		// });
+    //when disconnect
+    socket.on("disconnect", () => {
+      console.log("a user disconnected!");
+      removeUser(socket.id); // remover user
+      io.emit("getUsers", users); // set new online users
+    });
+  });
 
-		socket.on('sendFriendRequest', ({ senderId, receiverId }) => {
-			const user = getUser(receiverId);
-			console.log('------------------------ SENDING FRIEND REQUEST ------------------------------');
-			console.log('getting friend request ');
-			console.log(receiverId);
-			if (user) {
-				console.log(
-					'---------' + user.socketId + '-------------------------------------' + senderId + '--------------'
-				);
+  let users = [];
 
-				console.log(senderId + ' ---> ' + receiverId);
-				io.to(user.socketId).emit('getFriendRequest', {
-					senderId,
-				});
-			} else {
-				console.log('User is offline ');
-			}
-		});
+  const addUser = (userId, socketId) => {
+    !users.some((user) => user.userId === userId) &&
+      users.push({ userId, socketId });
+    console.log("new user push with id " + userId);
+  };
 
-		//when disconnect
-		socket.on('disconnect', () => {
-			console.log('a user disconnected!');
-			removeUser(socket.id); // remover user
-			io.emit('getUsers', users); // set new online users
-		});
-	});
+  const removeUser = (socketId) => {
+    users = users.filter((user) => user.socketId !== socketId);
+  };
 
-	let users = [];
-
-	const addUser = (userId, socketId) => {
-		!users.some((user) => user.userId === userId) && users.push({ userId, socketId });
-		console.log('new user push with id ' + userId);
-		console.log(users);
-	};
-
-	const removeUser = (socketId) => {
-		users = users.filter((user) => user.socketId !== socketId);
-	};
-
-	const getUser = (userId) => {
-		return users.find((user) => user.userId === userId);
-	};
+  const getUser = (userId) => {
+    return users.find((user) => user.userId === userId);
+  };
 };

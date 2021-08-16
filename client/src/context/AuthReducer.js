@@ -25,7 +25,7 @@ const AuthReducer = (state, action) => {
 				error: false,
 			};
 		case 'FOLLOW':
-			console.log('adding user in follow with it ' + action.payload);
+			
 			return {
 				...state,
 				user: {
@@ -54,15 +54,14 @@ const AuthReducer = (state, action) => {
 				error: false,
 			};
 		case 'AcceptFriendRequest':
-			console.log(action.payload);
+			
 			return {
 				user: action.payload,
 				isFetching: false,
 				error: false,
 			};
 		case 'RejectFriendRequest':
-			console.log('Rejected ');
-			console.log(action.payload);
+			
 			return {
 				user: action.payload,
 				isFetching: false,
@@ -75,7 +74,7 @@ const AuthReducer = (state, action) => {
 				error: false,
 			};
 		case 'pendingRequest':
-			console.log(action.payload);
+			
 			return {
 				...state,
 				user: {

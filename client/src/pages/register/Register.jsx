@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password.current.value !== confirmPassword.current.value) {
-      console.log(password.current, confirmPassword.current);
+      
       password.current.setCustomValidity("password donot match");
     } else {
       const user = {
@@ -45,7 +45,7 @@ const Login = () => {
           }
         );
 
-        console.log("failed to register user ");
+        
         console.log(err);
       } finally {
         setloading(false);

@@ -40,11 +40,8 @@ export default function Rightbar({ user }) {
           if (user && Object.entries(user).length) {
             const friendList = await axios.get("/user/?userId=" + user?._id);
             setFriends(friendList.data.friends);
-            console.log(friendList.data.friends);
           }
         } catch (err) {
-          console.log("user not found " + user?._id);
-          console.log(user);
           console.log(err);
         }
       };

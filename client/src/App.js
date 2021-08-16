@@ -3,13 +3,8 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Profile from "./pages/profile/Profile";
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import ERROR404 from "./pages/ERROR404";
+import { Switch, Route, Redirect, HashRouter } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import Messenger from "./pages/messanger/Messenger";
 import TimeLine from "./pages/feeds/TimeLine";
@@ -48,7 +43,7 @@ const App = () => {
 
   return (
     <>
-      <Router>
+      <HashRouter>
         <Switch>
           <Route exact path="/">
             {user ? <Home /> : <Login />}
@@ -71,8 +66,11 @@ const App = () => {
           <Route exact path="/profile/:username">
             {user ? <Profile /> : <Login />}
           </Route>
+          <Route path="*">
+            <ERROR404 />
+          </Route>
         </Switch>
-      </Router>
+      </HashRouter>
     </>
   );
 };

@@ -13,8 +13,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 const Post = ({ post }) => {
-  // console.log('-------------------------------------------');
-  // console.log(post);
+
   const [like, setLike] = useState(post.likes.length);
   const [isLike, setisLike] = useState(false);
   const [user, setUser] = useState({});
@@ -47,21 +46,21 @@ const Post = ({ post }) => {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    console.log(event.currentTarget);
+    
   };
 
   const handleClose = async (e) => {
     if (e.currentTarget.id === "editPost") {
-      console.log("edit post");
+      
     }
     if (e.currentTarget.id === "deletePost") {
-      console.log("delete post");
+      
       try {
         const id = currentUser._id;
         await axios.delete(`/post/${post._id}`, {
           data: { userId: id },
         });
-        console.log("post deleted succesfully ");
+        
         window.location.reload();
       } catch (err) {
         console.log(err);

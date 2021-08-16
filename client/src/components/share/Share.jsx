@@ -39,22 +39,17 @@ const Share = () => {
       data.append("file", file);
       data.append("upload_preset", "chatsocial");
       data.append("cloud_name", "abhi97");
-      console.log(data);
 
       try {
-        console.log("uploading file ...........");
         const res = await axios.post(
           "https://api.cloudinary.com/v1_1/abhi97/image/upload",
           data
         );
         newPost.img = res.data.url;
-
-        console.log("uploading file ...........done	");
       } catch (err) {
         console.log(err);
       }
     }
-    alert("photo uploaded ");
 
     try {
       await axios.post("/post", newPost);
@@ -107,7 +102,6 @@ const Share = () => {
                 id="file"
                 accept=".png,.jpeg,.jpg"
                 onChange={(e) => {
-                  console.log(e.target.files[0]);
                   setFile(e.target.files[0]);
                 }}
                 style={{ display: "none" }}

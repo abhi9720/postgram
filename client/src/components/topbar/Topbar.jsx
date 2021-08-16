@@ -70,7 +70,7 @@ const Topbar = () => {
           <div className="topbarCenter">
             <NavLink to="/" style={{ color: "white", textDecoration: "none" }}>
               <span className="topbarNavLink">
-                <Home style={{ fontSize: 30 }} />
+                <Home className="iconstyle" />
               </span>
             </NavLink>
             <NavLink
@@ -78,16 +78,14 @@ const Topbar = () => {
               style={{ color: "white", textDecoration: "none" }}
             >
               <span className="topbarNavLink">
-                <TimelineIcon style={{ fontSize: 30 }} />{" "}
+                <TimelineIcon className="iconstyle" />{" "}
               </span>
             </NavLink>
 
             <div className="topbarIconItem">
-              <IconButton aria-label="delete">
-                <NavLink to="/messenger">
-                  <Chat className="iconstyle" style={{ color: "white" }} />
-                </NavLink>
-              </IconButton>
+              <NavLink to="/messenger">
+                <Chat className="iconstyle" style={{ color: "white" }} />
+              </NavLink>
 
               {/* <span className="topbarIconBadge">2</span> */}
             </div>

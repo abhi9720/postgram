@@ -51,8 +51,6 @@ const port = process.env.PORT || 8800;
 
 if (process.env.NODE_ENV != "production") {
   app.use(express.static("client/build"));
-
-  const path = require("path");
 }
 
 const server = app.listen(port, () => {

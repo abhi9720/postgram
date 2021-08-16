@@ -2,7 +2,7 @@ import './message.css';
 import { format } from 'timeago.js';
 const Message = ({ Message, own, img }) => {
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-	console.log('Image Link ' + img);
+	
 	return (
 		<>
 			<div className={own ? 'message own' : 'message'}>

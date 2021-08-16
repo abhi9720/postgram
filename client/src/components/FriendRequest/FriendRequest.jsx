@@ -39,12 +39,11 @@ const FriendRequest = ({ id }) => {
     dispatch({ type: "AcceptFriendRequest", payload: res.data });
   };
   const rejectFriendRequest = async () => {
-    alert("Rejecting  request ");
+    
     const res = await axios.put(`/user/${user._id}/rejectrequest`, {
       userId: currentUser._id,
     });
-    console.log(res.data);
-    alert("gettting response of rejected ");
+    
     dispatch({ type: "RejectFriendRequest", payload: res.data });
   };
 

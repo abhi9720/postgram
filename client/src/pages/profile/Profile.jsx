@@ -209,7 +209,30 @@ export default function Profile() {
               <Instagram color="#f11946" width="1200px" height="600px" />
             </div>
           ) : status === "error" ? (
-            <h1> Error </h1>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                maxHeight: "90vh",
+                flexDirection: "column",
+                marginTop: "100px",
+              }}
+            >
+              <h4>
+                ERROR SOME INTERNAL ERROR OCCUR <br />
+                <br /> CHECK YOUR INTERNET CONNECTIONS
+              </h4>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                style={{ position: "absolute", top: "50%" }}
+                onClick={() => window.location.reload()}
+              >
+                RELOAD PAGE
+              </Button>
+            </div>
           ) : (
             <>
               <div className="profileRightTop">

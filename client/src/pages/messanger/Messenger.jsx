@@ -25,7 +25,7 @@ const Messenger = () => {
   const [messages, setMessages] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  console.log(onlineUsers);
+  
   useEffect(() => {
     socket.current = io.connect(process.env.REACT_APP_End_Point);
 
@@ -79,7 +79,7 @@ const Messenger = () => {
     try {
       setSend(true);
       const res = await axios.post("/messages", addNewMessage);
-      console.log(res.data);
+      
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
