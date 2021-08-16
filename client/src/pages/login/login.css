@@ -1,92 +1,92 @@
 .login {
-	width: 100vw;
-	height: 100vh;
-	background-color: #f0f2f5;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginWrapper {
-	width: 70%;
+  width: 70%;
 
-	display: flex;
+  display: flex;
 }
 
 .loginLeft,
 .loginRight {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .loginLogo {
-	font-size: 50px;
-	font-weight: 800;
-	color: #1775ee;
-	margin-bottom: 10px;
-	text-shadow: rgba(236, 236, 236, 0.4) 0px 54px 149px;
+  font-size: 50px;
+  font-weight: 800;
+  color: #1775ee;
+  margin-bottom: 10px;
+  text-shadow: rgba(236, 236, 236, 0.4) 0px 54px 149px;
 
-	/* -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68); */
+  /* -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68); */
 }
 .loginDesc {
-	font-size: 24px;
-	padding-right: 10px;
-	color: #0c163b;
-	font-weight: 600;
-	font-style: normal;
+  font-size: 24px;
+  padding-right: 10px;
+  color: #0c163b;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .loginBox {
-	height: 280px;
-	padding: 20px;
-	background-color: white;
-	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  height: 280px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 }
 
 .loginInput {
-	height: 50px;
-	border-radius: 10px;
-	border: 1px solid gray;
-	font-size: 18px;
-	padding-left: 20px;
+  height: 50px;
+
+  border: 1px solid gray !important;
+  font-size: 18px;
+  padding-left: 20px;
 }
 .loginInput:focus {
-	outline: none;
-	border: 1px solid #1775ee;
-	background-color: #fff;
+  outline: none;
+  border: 1px solid #1775ee;
+  background-color: #fff;
 }
 .loginButton:disabled {
-	cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .loginButton {
-	height: 50px;
-	border-radius: 10px;
-	border: none;
-	background-color: #1775ee;
-	color: white;
-	font-size: 20px;
-	font-weight: 500;
-	transition: 0.2s ease-in-out;
-	cursor: pointer;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1775ee;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 .loginButton:hover {
-	color: #1775ee;
-	border: 1px solid #1775ee;
-	background-color: #1774ee23;
+  color: #1775ee;
+  border: 1px solid #1775ee;
+  background-color: #1774ee23;
 }
 
 .loginForget {
-	text-align: center;
-	color: #1775ee;
-	cursor: pointer;
+  text-align: center;
+  color: #1775ee;
+  cursor: pointer;
 }
 
 /* 
@@ -97,24 +97,24 @@
 } */
 
 .registerNew {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 20px;
-	color: #453197;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: #453197;
 }
 
 .loginRegisterButton {
-	margin-left: 12px;
+  margin-left: 12px;
 }
 
 @media (max-width: 780px) {
-	.loginWrapper {
-		flex-direction: column;
-		width: 80%;
-	}
-	.loginDesc {
-		font-size: 12px;
-		margin-bottom: 20px;
-	}
+  .loginWrapper {
+    flex-direction: column;
+    width: 80%;
+  }
+  .loginDesc {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
 }

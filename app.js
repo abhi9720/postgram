@@ -49,7 +49,7 @@ mongoose.connect(
 //====================== running port ==============
 const port = process.env.PORT || 8800;
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV !== "production") {
   app.use(express.static("client/build"));
 }
 

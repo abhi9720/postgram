@@ -1,41 +1,80 @@
 import "./register.css";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+import React from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { useAlert, positions } from "react-alert";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress, TextField } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+
 const Login = () => {
-  const username = useRef();
-  const email = useRef();
-  const password = useRef();
-  const confirmPassword = useRef();
+  const [field, setField] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const status = React.useRef(false);
+
   const history = useHistory();
   const [loading, setloading] = useState(false);
   const alert = useAlert();
+  const [values, setValues] = React.useState({
+    showPassword: false,
+  });
+
+  const inputEvent = (event) => {
+    const { value, name } = event.target;
+    setField((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password.current.value !== confirmPassword.current.value) {
-      
-      password.current.setCustomValidity("password donot match");
+    const user = {
+      username: field.username,
+      email: field.email,
+      password: field.password,
+    };
+    const confirmPassword = field.confirmPassword;
+
+    if (user.password === "undefined" || user.password !== confirmPassword) {
+      alert.error(
+        <div
+          style={{
+            color: "red",
+          }}
+        >
+          Password mismatch
+        </div>,
+        {
+          position: positions.TOP_CENTER,
+          containerStyle: {
+            backgroundColor: "white",
+          },
+        }
+      );
     } else {
-      const user = {
-        username: username.current.value,
-        email: email.current.value,
-        password: password.current.value,
-      };
       try {
         setloading(true);
         await axios.post("/auth/register", user);
         history.push("/login");
       } catch (err) {
+        console.log(err);
         alert.error(
           <div
             style={{
               color: "red",
             }}
           >
-            Username or emailid already exits
+            Username or email id already exits
           </div>,
           {
             position: positions.TOP_RIGHT,
@@ -45,12 +84,15 @@ const Login = () => {
           }
         );
 
-        
         console.log(err);
       } finally {
         setloading(false);
       }
     }
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({ showPassword: !values.showPassword });
   };
 
   return (
@@ -60,42 +102,88 @@ const Login = () => {
           <div className="registerLeft">
             <h3 className="registerLogo">Postgram</h3>
             <span className="registerDesc">
-              Connect with friends and the world around you on Lampsocial.com
+              Connect with friends and the world around you on
+              postgram-social.herokuapp.com
             </span>
           </div>
           <div className="registerRight">
             <form className="registerBox" onSubmit={handleSubmit}>
-              <input
+              <TextField
                 type="text"
-                className="registerInput"
-                placeholder="Username"
-                ref={username}
+                id="filled-basic"
+                name="username"
+                variant="filled"
+                onChange={inputEvent}
+                value={field.username}
                 required
-                minLength="3"
+                label="Username"
               />
-              <input
+
+              <TextField
+                id="filled-email-input"
+                label="Email"
                 type="email"
-                className="registerInput"
-                placeholder="Email"
-                ref={email}
+                name="email"
+                variant="filled"
+                onChange={inputEvent}
+                value={field.email}
                 required
               />
-              <input
-                type="password"
-                className="registerInput"
-                placeholder="Password"
-                ref={password}
-                minLength="6"
+
+              <TextField
+                id="filled-password-input"
+                label="Password"
+                variant="filled"
                 required
+                name="password"
+                type={values.showPassword ? "text" : "password"}
+                onChange={inputEvent}
+                value={field.password}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPassword}
+                        // onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
-              <input
-                type="password"
-                className="registerInput"
-                placeholder="Confirm Password"
-                ref={confirmPassword}
-                minLength="6"
-                required
+              <TextField
+                id="filled-password-input"
+                label="Confirm Password"
+                variant="filled"
+                name="confirmPassword"
+                type={values.showPassword ? "text" : "password"}
+                onChange={inputEvent}
+                value={field.confirmPassword}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPassword}
+                        // onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
+              {status.current && (
+                <small style={{ color: "red" }}>* Password not match </small>
+              )}
               <button type="submit" className="registerButton">
                 {loading ? (
                   <CircularProgress color="primary" size="24px" />

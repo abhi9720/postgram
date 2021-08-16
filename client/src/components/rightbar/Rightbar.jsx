@@ -4,11 +4,12 @@ import "./rightbar.scss";
 // import Online from '../online/Online';
 import { useContext, useRef, useState } from "react";
 import axios from "axios";
-
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { AuthContext } from "../../context/AuthContext";
 import Friends from "../friends/Friends";
 import { Button } from "@material-ui/core";
-
+import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 export default function Rightbar({ user }) {
   // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -104,7 +105,10 @@ export default function Rightbar({ user }) {
         </h4>
         <div className="rightbarInfo">
           <div key="city" className="rightbarInfoItem">
-            <span className="rightbarInfoKey">City :</span>
+            <span className="rightbarInfoKey">
+              {" "}
+              <LocationOnIcon />
+            </span>
             <span
               className="rightbarInfoValue"
               name="city"
@@ -119,7 +123,9 @@ export default function Rightbar({ user }) {
           </div>
 
           <div key="from" className="rightbarInfoItem">
-            <span className="rightbarInfoKey">From :</span>
+            <span className="rightbarInfoKey">
+              <BusinessCenterIcon />
+            </span>
             <span
               className="rightbarInfoValue"
               name="from"
@@ -133,7 +139,9 @@ export default function Rightbar({ user }) {
             </span>
           </div>
           <div key="relationships" className="rightbarInfoItem">
-            <span className="rightbarInfoKey">Relationship :</span>
+            <span className="rightbarInfoKey">
+              <FavoriteIcon />
+            </span>
             <span
               className="rightbarInfoValue"
               name="relationships"

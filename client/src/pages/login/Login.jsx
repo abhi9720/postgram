@@ -1,19 +1,44 @@
-import { useContext, useRef } from "react";
+import { useContext, useState } from "react";
 import "./login.css";
+import React from "react";
+
 import { Link } from "react-router-dom";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress, TextField } from "@material-ui/core";
 import { useAlert, positions } from "react-alert";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+
 const Login = () => {
-  const email = useRef();
-  const password = useRef();
+  const [field, setField] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [values, setValues] = React.useState({
+    showPassword: false,
+  });
+  const inputEvent = (event) => {
+    const { value, name } = event.target;
+    console.log(value, name);
+    setField((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
   const { isFetching, dispatch } = useContext(AuthContext);
   const alert = useAlert();
   const handleClick = async (e) => {
     e.preventDefault();
+    console.log({ email: field.email, password: field.password });
     const res = await loginCall(
-      { email: email.current.value, password: password.current.value },
+      { email: field.email, password: field.password },
       dispatch
     );
     if (res === 200) {
@@ -21,7 +46,6 @@ const Login = () => {
         <div
           style={{
             color: "white",
-
             padding: "5px 5px",
           }}
         >
@@ -36,7 +60,7 @@ const Login = () => {
             color: "red",
           }}
         >
-          Invalid username or password
+          Invalid Email or password
         </div>,
         {
           position: positions.TOP_RIGHT,
@@ -47,6 +71,9 @@ const Login = () => {
       );
     }
   };
+  const handleClickShowPassword = () => {
+    setValues({ showPassword: !values.showPassword });
+  };
 
   return (
     <>
@@ -55,26 +82,50 @@ const Login = () => {
           <div className="loginLeft">
             <h3 className="loginLogo">Postgram</h3>
             <span className="loginDesc">
-              Connect with friends and the world around you on Lampsocial.com
+              Connect with friends and the world around you on
+              postgram-social.herokuapp.com
             </span>
           </div>
           <div className="loginRight">
             <form className="loginBox" onSubmit={handleClick}>
-              <input
+              <TextField
+                id="filled-email-input"
+                label="Email"
                 type="email"
-                className="loginInput"
-                placeholder="Email"
-                ref={email}
-                required
+                name="email"
+                variant="filled"
+                onChange={inputEvent}
+                value={field.email}
+                validators={["required", "isEmail"]}
               />
-              <input
-                type="password"
-                minLength="6"
-                className="loginInput"
-                placeholder="Enter your Password"
-                ref={password}
+
+              <TextField
+                id="filled-password-input"
+                label="Password"
+                variant="filled"
                 required
+                name="password"
+                type={values.showPassword ? "text" : "password"}
+                onChange={inputEvent}
+                value={field.password}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPassword}
+                        // onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
+
               <button
                 type="submit"
                 className="loginButton"

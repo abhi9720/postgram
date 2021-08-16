@@ -1,7 +1,7 @@
 {
   "name": "react-social",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
@@ -25,6 +25,7 @@
     "react-dom": "^17.0.2",
     "react-edit-inline": "^1.0.8",
     "react-inline-editing": "^1.0.10",
+    "react-material-ui-form-validator": "^2.1.4",
     "react-notifications": "^1.7.2",
     "react-query": "^3.19.6",
     "react-router-dom": "^5.2.0",
