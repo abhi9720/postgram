@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Postgram- A social Networking hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an **social** - networing app with lot of functionality like sharing sharing post , adding new friend, follow other users , do chat chat with them
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Live Demo [Postgram](https//postgram-social.herokuapp.com/)
 
-### `npm start`
+**Homepage**
+![Home Page](https://res.cloudinary.com/abhi97/image/upload/v1629359950/recipes/home_kmdzgh.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Profile**
+![PROFILE PAGE](https://res.cloudinary.com/abhi97/image/upload/v1629360037/recipes/profile_t1sjf0.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**MESSENGER**
+![CHAT PAGE](https://res.cloudinary.com/abhi97/image/upload/v1629359956/recipes/chat_cozsol.png)
 
-### `npm test`
+### Functionality and Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Simple login and signup
+- Adding new post
+- Follow other user
+- Like a post
+- Delete a post
+- Sending Friend Request using socket.io - accept or reject both
+- Realtime chat application
+- Creative profile page of user to manage their follower and following , and friend
+- Upload profile picture and background image for profile page
+- Easily Search other user , follow or send request
+- Awesome UI for laptop and desktop
 
-### `npm run build`
+## **TOOLS AND TECHNOLOGY**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Nodejs        | Express         | Mongodb              |
+| ------------- | --------------- | -------------------- |
+| **Reactjs**   | **Socket.io**   | **mongoose**         |
+| **Multer**    | **cloudinary**  | **morgan**           |
+| **bootstrap** | **react-alert** | **socket.io-client** |
+| **axios**     | **Heroku**      | **Material UI**      |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## RUN IT LOCALLY
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Install `Nodejs` and `Reactjs` to your local machine
+- Create account on cloudinary and mongodb
+- Set up all these keys by creating .env file for nodejs server
 
-### `npm run eject`
+`MONGO_URL =`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`CLOUDINARY_CLOUD_NAME =`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`CLOUDINARY_KEY =`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`CLOUDINARY_SECRET =`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- And in Client folder setup .env file and add these variables to it
 
-## Learn More
+`REACT_APP_PUBLIC_FOLDER = ./assets/`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`REACT_APP_End_Point = http://localhost:8800/`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- And Finally , run `cd .\server\` then `npm start`
