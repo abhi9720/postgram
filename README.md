@@ -6,7 +6,7 @@ Looks Excited right , just click on link below and create your account and join 
 
 ---
 
-## Live Demo [Postgram](https//postgram-social.herokuapp.com/)
+## Live Demo [Postgram](https://postgram-social.herokuapp.com/#/)
 
 **Homepage**
 ![Home Page](https://res.cloudinary.com/abhi97/image/upload/v1629359950/recipes/home_kmdzgh.png)
