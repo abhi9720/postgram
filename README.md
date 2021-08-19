@@ -26,10 +26,10 @@ Looks Excited right , just click on link below and create your account and join 
 - Delete a post
 - Sending Friend Request using socket.io - accept or reject both
 - Realtime chat application
-- Creative profile page of user to manage their follower and following , and friend
-- Upload profile picture and background image for profile page
+- Creative profile page of user to manage your follower and following , and friend
+- Upload profile picture and Cover image for profile page
 - Easily Search other user , follow or send request
-- Awesome UI for laptop and desktop
+- **Awesome UI for laptop and desktop**
 
 ## **TOOLS AND TECHNOLOGY**
 
