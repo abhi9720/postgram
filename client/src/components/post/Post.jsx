@@ -1,19 +1,18 @@
-import React from "react";
-import "./post.css";
-import { MoreVert } from "@material-ui/icons";
-import axios from "axios";
-import { format } from "timeago.js";
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import React from 'react';
+import './post.css';
+import { MoreVert } from '@material-ui/icons';
+import axios from 'axios';
+import { format } from 'timeago.js';
+import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 const Post = ({ post }) => {
-
   const [like, setLike] = useState(post.likes.length);
   const [isLike, setisLike] = useState(false);
   const [user, setUser] = useState({});
@@ -46,21 +45,18 @@ const Post = ({ post }) => {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    
   };
 
   const handleClose = async (e) => {
-    if (e.currentTarget.id === "editPost") {
-      
+    if (e.currentTarget.id === 'editPost') {
     }
-    if (e.currentTarget.id === "deletePost") {
-      
+    if (e.currentTarget.id === 'deletePost') {
       try {
         const id = currentUser._id;
         await axios.delete(`/post/${post._id}`, {
           data: { userId: id },
         });
-        
+
         window.location.reload();
       } catch (err) {
         console.log(err);
@@ -76,21 +72,23 @@ const Post = ({ post }) => {
         <div className="postWrapper">
           <div className="postTop">
             <div className="postTopLeft">
-              <Link to={`/profile/${user.username}`}>
+              <Link to={`/profile/${user.username}`} className="d-flex">
                 <img
                   src={
                     user.profilePicture
                       ? user.profilePicture.replace(
-                          "/upload",
-                          "/upload/w_1000,h_1000,c_thumb,g_faces"
+                          '/upload',
+                          '/upload/w_1000,h_1000,c_thumb,g_faces'
                         )
-                      : "/assets/person/noAvatar.png"
+                      : '/assets/person/noAvatar.png'
                   }
                   alt=".."
                   className="postProfileImg"
                 />
               </Link>
-              <span className="postUserName">{user.username}</span>
+              <Link to={`/profile/${user.username}`} className="d-flex">
+                <span className="postUserName">{user.username}</span>
+              </Link>
               <span className="postDate">{format(post.createdAt)}</span>
             </div>
             {post.userId === currentUser._id ? (
@@ -115,15 +113,17 @@ const Post = ({ post }) => {
                 </Menu>
               </div>
             ) : (
-              ""
+              ''
             )}
           </div>
           <div className="postCenter">
-            <span className="postText">{post?.description} </span>
+            {post?.description && (
+              <span className="postText">{post?.description} </span>
+            )}
             {post.img ? (
               <img src={post.img} alt=".." className="postImage" />
             ) : (
-              ""
+              ''
             )}
           </div>
 
