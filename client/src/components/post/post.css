@@ -1,116 +1,112 @@
 .post {
-	width: 100%;
-	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-	margin: 30px 0;
-	background-color: white;
-	font-family: 'Mulish', sans-serif;
-}
-
-.postWrapper {
-	padding: 10px;
+  margin: 20px 0;
+  background-color: white;
+  font-family: "Mulish", sans-serif !important;
+  white-space: pre-wrap;
+  border-radius: 0.3rem;
+  border: 1px solid #dbdbdb;
+  border: 1px solid rgba(219, 219, 219, 1);
+  max-width: 780px;
+  box-shadow: 0 0 16px -8px rgb(0 0 0 / 68%) !important;
 }
 
 .postTop {
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid #e0fbfc;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0fbfc;
+  flex-direction: row;
+  height: 70px;
+  padding: 16px 10px;
+  border-bottom: 1px solid #e0fbfc;
+  /* background-color: #cfe2ff; */
 }
 
 .postTopLeft {
-	display: flex;
-	align-items: center;
-	padding: 2px 2px;
+  display: flex;
+  align-items: center;
+  color: linear-gradient(to right, #005c97, #363795) !important;
+}
+.postTopLeft a {
+  text-decoration: none !important;
 }
 
-.postdropdown {
-	position: absolute;
-	z-index: 1000;
-}
 .postText {
-	font-family: 'Mulish', sans-serif;
-	font-style: normal;
-	display: block;
-	margin-block-start: 1em;
-	margin-block-end: 1em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	font-weight: 500;
+  padding: 5px 10px;
+  font-style: normal;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 500;
 
-	font-size: 16px;
-	font-weight: 400;
-	overflow-x: hidden;
-	line-height: 24px;
-	-webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  font-weight: 400;
+  overflow-x: hidden;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
 }
 
 .postProfileImg {
-	width: 32px;
-	height: 32px;
-	border-radius: 50%;
-	object-fit: cover;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .postUserName {
-	display: block;
-	font-size: 1em;
-	margin-block-start: 0.83em;
-	margin-block-end: 0.83em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	font-weight: bold;
-
-	margin: 0 10px;
+  display: block;
+  font-size: 1em;
+  color: #002691 !important;
+  font-weight: bold;
+  margin: 0 10px;
 }
 .postDate {
-	font-size: 12px;
+  font-size: 12px;
 }
 
 .postCenter {
-	overflow: hidden;
-	box-sizing: border-box;
-	padding: 0px 20px;
-
-	margin-top: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-top: 0px;
 }
 .postImage {
-	width: 100%;
-	max-height: 550px;
-	object-fit: contain;
-	background-position: center;
-	margin-bottom: 15px;
+  width: 100%;
+
+  object-fit: cover;
+  background-position: center;
+  margin-bottom: 15px;
 }
 
 .postBottom {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-top: 1px solid #edeff1;
-	padding-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #edeff1;
+  padding: 3px 0px;
 }
 .postBottomLeft {
-	display: flex;
-	align-items: center;
-	margin-left: 10px;
-	margin-right: 5px;
-	margin-top: 5px;
+  display: flex;
+  align-items: center;
+
+  margin: 5px 10px;
 }
 
 .likeIcon {
-	margin-right: 5px;
-	line-height: 25px;
-	cursor: pointer;
-	border-radius: 50%;
-	transition: all 300ms;
+  margin-right: 5px;
+  line-height: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 300ms;
 }
 .likeIcon:hover {
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
 .postLikeCounter {
-	font-size: 15px;
+  font-size: 15px;
 }
 .postCommentText {
-	cursor: pointer;
-	border-bottom: 1px dashed gray;
-	font-size: 15px;
+  cursor: pointer;
+  border-bottom: 1px dashed gray;
+  font-size: 15px;
 }
