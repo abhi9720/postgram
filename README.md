@@ -1,8 +1,6 @@
 # Postgram- A social Networking hub
 
-This is an **social** - networing app with lot of functionality like  sharing post , adding new friend, follow other users , do realtime chat chat with your friends.
-Looks Excited right , just click on link below and create your account and join these amazing peoples.
-
+This is an **social - networking app** with lot of functionality like sharing post , adding new friend, follow other users , do real-time chat chat with your friends. Looks Excited right , just click on link below and create your account and join these amazing peoples.
 
 ---
 
